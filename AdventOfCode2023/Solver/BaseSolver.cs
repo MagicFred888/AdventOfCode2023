@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AdventOfCode2023.Solver
 {
@@ -11,6 +12,7 @@ namespace AdventOfCode2023.Solver
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     internal abstract class BaseSolver
     {
+        private int day = -1;
         private class DataSet
         {
             public string TestFileName = string.Empty;
@@ -30,6 +32,7 @@ namespace AdventOfCode2023.Solver
         public BaseSolver(int day)
         {
             // Base data folder
+            this.day = day;
             challengeData.Clear();
             sampleDataSet.Clear();
             string dataFolder = @$"..\..\..\Data\Day{day.ToString("00")}\";
@@ -105,6 +108,11 @@ namespace AdventOfCode2023.Solver
         {
             // Test sample
             rawData = challengeData;
+            if (challengeData.Count == 0)
+            {
+                resultString = $"NO CHALLENGE DATA FOUND ! Please make sure you save your puzzle input into Data\\Day{day.ToString("00")}\\Challenge.txt !";
+                return false;
+            }
             stopwatch.Restart();
             string answer = roundId == RoundId.FirstRound ? GetSolution1() : GetSolution2();
             stopwatch.Stop();
