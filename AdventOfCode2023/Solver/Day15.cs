@@ -73,7 +73,6 @@
                 answer += allBoxes[i].Aggregate(0, (result, kvp) => result + ((i + 1) * (keys.IndexOf(kvp.Key) + 1) * kvp.Value));
             }
 
-
             // Done
             return answer.ToString();
         }
