@@ -131,13 +131,21 @@ namespace AdventOfCode2023.Solver
                 for (int x = 0; x <= tmpTable.GetUpperBound(0); x++)
                 {
                     string tmpVal = tmpTable[x, y].ToString();
-                    if (convDic.ContainsKey(tmpVal))
+
+                    if (convDic == null)
                     {
-                        line += convDic[tmpVal];
+                        line += tmpVal;
                     }
                     else
                     {
-                        line += missing;
+                        if (convDic.ContainsKey(tmpVal))
+                        {
+                            line += convDic[tmpVal];
+                        }
+                        else
+                        {
+                            line += missing;
+                        }
                     }
                 }
                 Debug.WriteLine(line);
