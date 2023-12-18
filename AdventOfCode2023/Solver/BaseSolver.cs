@@ -130,7 +130,7 @@ namespace AdventOfCode2023.Solver
                 string line = string.Empty;
                 for (int x = 0; x <= tmpTable.GetUpperBound(0); x++)
                 {
-                    string tmpVal = tmpTable[x, y].ToString();
+                    string tmpVal = tmpTable[x, y] == null ? "." : tmpTable[x, y].ToString();
 
                     if (convDic == null)
                     {
