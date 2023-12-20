@@ -99,7 +99,18 @@ namespace AdventOfCode2023.Solver
             }
 
             // Give result
-            resultString = results.ToArray();
+            if (results.Count == 0)
+            {
+                // No sample
+                resultString = new string[] { "No sample data found !" };
+            }
+            else
+            {
+                // Give results
+                resultString = results.ToArray();
+            }
+
+            // Done
             return allTestPassed;
         }
 
