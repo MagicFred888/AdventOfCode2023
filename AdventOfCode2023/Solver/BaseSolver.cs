@@ -164,6 +164,22 @@ namespace AdventOfCode2023.Solver
         }
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
+        protected void DebugPrint(char[,] tmpTable)
+        {
+            // To visualize Matrix
+            Debug.WriteLine("");
+            for (int y = 0; y <= tmpTable.GetUpperBound(1); y++)
+            {
+                string line = string.Empty;
+                for (int x = 0; x <= tmpTable.GetUpperBound(0); x++)
+                {
+                    line += tmpTable[x, y].ToString();
+                }
+                Debug.WriteLine(line);
+            }
+        }
+
+        //------------------------------------------------------------------------------------------------------------------------------------------------------
         private string GetProperUnitAndRounding(double totalMilliseconds)
         {
             // Change scale
